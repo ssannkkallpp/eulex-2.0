@@ -1,219 +1,206 @@
 # EULEX 2.0 - Enhanced Learning Experience
 
-A modern, accessible web application designed to help people learn how to read by providing interactive text navigation, syllable splitting, and text-to-speech functionality.
+A modern, React-based reading assistance tool designed to help learners improve their reading skills through syllable splitting, text-to-speech, and interactive features.
 
-## 🌟 Features
+## 🚀 Features
 
-### Core Reading Features
-- **Word-by-Word Navigation**: Navigate through text one word at a time with visual highlighting
-- **Syllable Splitting**: Advanced algorithm that automatically splits words into syllables for better pronunciation
-- **Text-to-Speech**: High-quality speech synthesis with adjustable speed and voice selection
-- **Sentence Navigation**: Jump between sentences for better reading flow
-- **Interactive Word Selection**: Click on any word to jump directly to it
-
-### Enhanced User Experience
-- **Modern UI/UX**: Clean, responsive design built with Tailwind CSS
-- **Multiple Themes**: Light, dark, and sepia themes for different reading preferences
-- **Accessibility**: Full keyboard navigation and screen reader support
-- **Progress Tracking**: Visual progress bar and reading statistics
-- **Settings Persistence**: User preferences saved locally
-
-### Educational Content
-- **Curated Stories**: Carefully selected stories at different difficulty levels
-- **Difficulty Levels**: Beginner, intermediate, advanced, and poetry categories
-- **Reading Time Estimates**: Help users plan their reading sessions
-- **Word Count Information**: Track reading progress and complexity
-
-### Technical Improvements
-- **Modern JavaScript**: ES6+ syntax with class-based architecture
+- **Interactive Story Reading**: Choose from a curated collection of stories with varying difficulty levels
+- **Syllable Breakdown**: Advanced algorithm that splits words into syllables for better pronunciation
+- **Text-to-Speech**: Built-in speech synthesis with multiple voice options
+- **Multi-language Support**: Interface available in multiple languages
+- **Progress Tracking**: Visual progress indicators and word-by-word navigation
+- **Accessibility**: Keyboard navigation, screen reader support, and high contrast modes
 - **Responsive Design**: Works seamlessly on desktop, tablet, and mobile devices
-- **Performance Optimized**: Smooth animations and fast text processing
-- **Cross-Browser Compatible**: Works on all modern browsers
 
-## 🚀 Getting Started
+## 🛠️ Tech Stack
 
-### Prerequisites
-- Modern web browser with Web Speech API support
-- No additional software installation required
+- **Frontend**: React 18 with TypeScript
+- **Styling**: Tailwind CSS with custom design system
+- **Build Tool**: Vite for fast development and optimized builds
+- **Speech Synthesis**: Web Speech API
+- **State Management**: React Hooks
+- **Internationalization**: Custom i18n system
 
-### Installation
-1. Clone or download the repository
-2. Open `index.html` in your web browser
-3. Start reading!
+## 📦 Installation
 
-### Local Development
+1. Clone the repository:
 ```bash
-# Clone the repository
 git clone <repository-url>
 cd eulex-2.0
-
-# Open in your preferred code editor
-code .
-
-# Serve locally (optional)
-python -m http.server 8000
-# or
-npx serve .
 ```
 
-## 📖 How to Use
+2. Install dependencies:
+```bash
+npm install
+```
 
-### Basic Navigation
-- **Spacebar** or **Right Arrow**: Move to next word
-- **Left Arrow**: Move to previous word
-- **Up Arrow**: Move to previous sentence
-- **Down Arrow**: Move to next sentence
-- **P**: Play/pause current word
+3. Start the development server:
+```bash
+npm run dev
+```
+
+4. Open your browser and navigate to `http://localhost:3000`
+
+## 🎯 Usage
+
+### Getting Started
+1. Select your preferred language when the app loads
+2. Choose a story from the selection panel
+3. Use the navigation controls to move through words
+4. Click on syllables to hear individual pronunciations
+5. Use the audio controls to hear words or sentences
+
+### Keyboard Shortcuts
+- **Space/Right Arrow**: Next word
+- **Left Arrow**: Previous word
+- **P**: Play current word
 - **S**: Play current sentence
 
-### Story Selection
-1. Browse available stories on the main page
-2. Click on any story card to begin reading
-3. Stories are organized by difficulty level
-4. Each story shows word count and estimated reading time
+### Features
+- **Story Selection**: Browse stories by difficulty level (beginner, intermediate, advanced)
+- **Syllable Display**: Each word is automatically split into clickable syllables
+- **Progress Tracking**: Visual progress bar shows reading completion
+- **Settings**: Customize voice, font size, and theme preferences
+- **Multi-language**: Switch between different interface languages
 
-### Reading Interface
-- **Current Word Display**: Shows the highlighted word and its syllable breakdown
-- **Audio Controls**: Play individual words or entire sentences
-- **Navigation Panel**: Use buttons or keyboard shortcuts
-- **Progress Bar**: Track your reading progress
-- **Settings**: Customize voice, speed, font size, and theme
+## 🏗️ Project Structure
 
-### Settings & Customization
-- **Voice Selection**: Choose from available system voices
-- **Reading Speed**: Adjust speech rate from 0.5x to 2.0x
-- **Font Size**: Scale text from 14px to 24px
-- **Theme Selection**: Light, dark, or sepia themes
-- **Settings Persistence**: Your preferences are saved automatically
+```
+src/
+├── components/          # React components
+│   ├── Header.tsx
+│   ├── StorySelection.tsx
+│   ├── ReadingInterface.tsx
+│   ├── LanguageModal.tsx
+│   ├── SettingsModal.tsx
+│   ├── HelpModal.tsx
+│   └── CompletionModal.tsx
+├── hooks/              # Custom React hooks
+│   ├── useLanguage.ts
+│   ├── useSettings.ts
+│   └── useSpeechSynthesis.ts
+├── data/               # Static data
+│   ├── stories.ts
+│   └── translations.ts
+├── types/              # TypeScript type definitions
+│   └── index.ts
+├── utils/              # Utility functions
+│   └── syllableUtils.ts
+├── App.tsx             # Main application component
+├── main.tsx            # Application entry point
+└── index.css           # Global styles
+```
 
-## 🎯 Educational Benefits
+## 🎨 Customization
 
-### For Beginning Readers
-- **Visual Word Highlighting**: Helps focus attention on individual words
-- **Syllable Breakdown**: Makes complex words easier to pronounce
-- **Audio Reinforcement**: Reinforces correct pronunciation
-- **Controlled Pace**: Prevents reading too quickly
+### Adding New Stories
+Edit `src/data/stories.ts` to add new stories:
 
-### For Struggling Readers
-- **Multi-Sensory Learning**: Combines visual and auditory input
-- **Individual Word Focus**: Reduces cognitive load
-- **Repetition Control**: Can replay words as needed
-- **Progress Tracking**: Builds confidence through visible progress
+```typescript
+{
+    id: 'unique-id',
+    title: 'Story Title',
+    difficulty: 'beginner' | 'intermediate' | 'advanced',
+    description: 'Story description',
+    wordCount: 100,
+    readingTime: 3,
+    content: 'Story content here...'
+}
+```
 
-### For ESL Learners
-- **Pronunciation Practice**: Hear correct pronunciation of each word
-- **Syllable Understanding**: Learn word structure and stress patterns
-- **Sentence Context**: Understand words in context
-- **Adjustable Speed**: Learn at your own pace
+### Adding New Languages
+Edit `src/data/translations.ts` to add new language support:
 
-## 🔧 Technical Details
+```typescript
+fr: {
+    "welcome": "Bienvenue sur EULEX",
+    "select-language": "Veuillez sélectionner votre langue préférée",
+    // ... more translations
+}
+```
 
-### Browser Compatibility
-- **Chrome/Edge**: Full support with all features
-- **Firefox**: Full support with all features
-- **Safari**: Full support with all features
-- **Mobile Browsers**: Responsive design with touch-friendly interface
+### Customizing Styles
+The app uses Tailwind CSS with custom CSS variables. Modify `src/index.css` to customize:
+- Color schemes
+- Typography
+- Animations
+- Theme variables
 
-### Web Speech API
-The application uses the Web Speech API for text-to-speech functionality:
-- **SpeechSynthesis**: For text-to-speech output
-- **Voice Selection**: Access to system voices
-- **Rate Control**: Adjustable speech speed
-- **Event Handling**: Proper start/end/error handling
+## 🚀 Deployment
+
+### Build for Production
+```bash
+npm run build
+```
+
+### Preview Production Build
+```bash
+npm run preview
+```
+
+### Deploy to Static Hosting
+The built files in the `dist/` directory can be deployed to any static hosting service like:
+- Vercel
+- Netlify
+- GitHub Pages
+- AWS S3
+
+## 🔧 Development
+
+### Available Scripts
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+- `npm run format` - Format code with Prettier
+
+### Code Style
+- TypeScript for type safety
+- ESLint for code linting
+- Prettier for code formatting
+- Tailwind CSS for styling
+
+## 🌟 Features in Detail
 
 ### Syllable Algorithm
-The enhanced syllable splitting algorithm includes:
-- **Vowel Detection**: Identifies vowels including 'y' as vowel
-- **Consonant Clusters**: Handles common consonant combinations
-- **Special Cases**: Accounts for digraphs and trigraphs
-- **Language Rules**: Applies English syllable division rules
+The app uses an advanced syllable splitting algorithm that considers:
+- Vowel-consonant patterns
+- Common letter combinations
+- Language-specific rules
+- Pronunciation guidelines
 
-## 📱 Mobile Experience
+### Speech Synthesis
+- Multiple voice options
+- Adjustable speech rate
+- Word and sentence playback
+- Syllable-level pronunciation
 
-### Touch-Friendly Interface
-- **Large Touch Targets**: Easy-to-tap buttons and controls
-- **Swipe Navigation**: Gesture support for word navigation
-- **Responsive Layout**: Optimized for various screen sizes
-- **Mobile-Optimized Typography**: Readable text at all sizes
-
-### Mobile-Specific Features
-- **Fullscreen Mode**: Immersive reading experience
-- **Touch Feedback**: Visual feedback for interactions
-- **Orientation Support**: Works in portrait and landscape
-- **Offline Capability**: Works without internet connection
-
-## 🎨 Design Philosophy
-
-### Accessibility First
-- **Keyboard Navigation**: Full keyboard accessibility
-- **Screen Reader Support**: Proper ARIA labels and semantic HTML
-- **High Contrast Mode**: Support for high contrast preferences
-- **Reduced Motion**: Respects user motion preferences
-
-### User-Centered Design
-- **Intuitive Interface**: Easy to learn and use
-- **Consistent Patterns**: Familiar interaction patterns
-- **Clear Visual Hierarchy**: Important elements stand out
-- **Responsive Feedback**: Immediate response to user actions
-
-## 🔮 Future Enhancements
-
-### Planned Features
-- **User Accounts**: Save reading progress and preferences
-- **Custom Content**: Upload and read your own stories
-- **Reading Analytics**: Detailed progress tracking and insights
-- **Social Features**: Share progress and achievements
-- **Offline Mode**: Download stories for offline reading
-
-### Technical Improvements
-- **PWA Support**: Install as a native app
-- **Advanced Analytics**: Reading speed and comprehension metrics
-- **AI Integration**: Personalized reading recommendations
-- **Multi-Language Support**: Support for additional languages
+### Accessibility
+- Keyboard navigation support
+- Screen reader compatibility
+- High contrast mode
+- Reduced motion support
+- Focus management
 
 ## 🤝 Contributing
 
-We welcome contributions to improve EULEX 2.0! Here are some ways you can help:
-
-### Content Contributions
-- **Story Submissions**: Submit new stories for different reading levels
-- **Translation**: Help translate the interface to other languages
-- **Accessibility**: Improve accessibility features and testing
-
-### Technical Contributions
-- **Bug Reports**: Report issues and suggest improvements
-- **Feature Requests**: Propose new features and enhancements
-- **Code Contributions**: Submit pull requests for improvements
-- **Documentation**: Help improve documentation and guides
-
-### Getting Started with Development
 1. Fork the repository
 2. Create a feature branch
 3. Make your changes
-4. Test thoroughly
+4. Add tests if applicable
 5. Submit a pull request
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## 🙏 Acknowledgments
 
-- **Original EULEX**: Built upon the original EULEX application
-- **Web Speech API**: For text-to-speech functionality
-- **Tailwind CSS**: For modern, responsive styling
-- **Font Awesome**: For beautiful icons
-- **Google Fonts**: For typography
-
-## 📞 Support
-
-If you need help or have questions about EULEX 2.0:
-
-- **Documentation**: Check this README and inline help
-- **Issues**: Report bugs or request features via GitHub issues
-- **Email**: Contact the development team
-- **Community**: Join our community discussions
+- Web Speech API for text-to-speech functionality
+- Tailwind CSS for the styling framework
+- React team for the amazing framework
+- The open-source community for inspiration and tools
 
 ---
 
-**EULEX 2.0** - Making reading accessible, engaging, and effective for everyone. # eulex-2.0
+**EULEX 2.0** - Making reading accessible and enjoyable for everyone! 📚✨
