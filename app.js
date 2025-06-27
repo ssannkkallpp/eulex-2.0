@@ -132,8 +132,6 @@ class EULEXApp {
         // Navigation buttons
         document.getElementById('nextWordBtn').addEventListener('click', () => this.nextWord());
         document.getElementById('prevWordBtn').addEventListener('click', () => this.prevWord());
-        document.getElementById('nextSentenceBtn').addEventListener('click', () => this.nextSentence());
-        document.getElementById('prevSentenceBtn').addEventListener('click', () => this.prevSentence());
         
         // Audio controls
         document.getElementById('playPauseBtn').addEventListener('click', () => this.playCurrentWord());
@@ -224,14 +222,6 @@ class EULEXApp {
                 e.preventDefault();
                 this.prevWord();
                 break;
-            case 'ArrowUp':
-                e.preventDefault();
-                this.prevSentence();
-                break;
-            case 'ArrowDown':
-                e.preventDefault();
-                this.nextSentence();
-                break;
             case 'KeyP':
                 e.preventDefault();
                 this.playCurrentWord();
@@ -319,33 +309,6 @@ class EULEXApp {
                 wordCount: 198,
                 readingTime: 5,
                 content: `You may be surprised to learn that the humble bicycle was invented several years later than the railway locomotive! But the two-wheeler has come a long way since the day it was invented by a Scottish blacksmith, Kirkpatrick MacMillan, back (it is said) in 1839. MacMillan developed his bike from an older wheeled vehicle, called a "hobby horse". This was a wooden horse with two wheels. The rider sat on the horse, and pushed the vehicle along with his feet. It was not a very fast or safe vehicle, since it had no steering and no brakes. MacMillan, nicknamed Mad Pate, modified the hobby horse, by adding a system of articulated bars. The rider could push the bars back and forwards with his feet, and make the back wheel go round. He could also steer the bike, as the front wheel could be turned. To demonstrate his invention, he cycled 60 miles to Glasgow! It must have been a terrible journey, on the roads of the day! Pate's bike did not have rubber tyres or springs. Mad Pate was not recognised in his time, but other people became interested in bicycles. Twenty-five years later, a Frenchman called Pierre Lallemant designed and patented the first bicycle with rotary pedals; and in 1876, H.J.Lawson added another basic feature, "chain-drive". Other features, such as rubber tyres and gears, have appeared since then; but the basic bicycle has not changed. Since then the bicycle has had a magnificent fortune. Today, it is probably the most common form of transport in the world, especially in the Third World; and non-polluting and easy to ride, it has a big future as the town vehicle of tomorrow. Thanks Pate!`
-            },
-            {
-                id: 'internet-poem',
-                title: 'The Internet',
-                difficulty: 'poem',
-                description: 'A humorous poem about the addictive nature of the internet.',
-                wordCount: 89,
-                readingTime: 2,
-                content: `It is the deadliest trap I swear
-Makes me sometimes come up for air
-An ocean whose tides never seem to ebb
-Everyone calls it the worldwide web.
-
-It beckons the aimless wanderer
-With many delicious bits and bytes
-And even the more discerning surfer
-Can google down to useful sites.
-
-The television is not alone to blame
-The internet is all the same
-While the former cooked us on the couch
-The latter merely makes us slouch
-
-This might well be the age
-But the medium is not the message
-Said my father times umpteen
-Having played his games off the screen`
             }
         ];
     }
@@ -617,44 +580,6 @@ Having played his games off the screen`
             this.highlightCurrentWord();
             this.updateProgress();
             this.playCurrentWord();
-        }
-    }
-
-    nextSentence() {
-        const currentSentence = this.wordSentenceMap[this.currentWordIndex];
-        let nextSentenceStart = this.currentWordIndex;
-        
-        // Find start of next sentence
-        for (let i = this.currentWordIndex + 1; i < this.words.length; i++) {
-            if (this.wordSentenceMap[i] > currentSentence) {
-                nextSentenceStart = i;
-                break;
-            }
-        }
-        
-        if (nextSentenceStart !== this.currentWordIndex) {
-            this.currentWordIndex = nextSentenceStart;
-            this.highlightCurrentWord();
-            this.updateProgress();
-        }
-    }
-
-    prevSentence() {
-        const currentSentence = this.wordSentenceMap[this.currentWordIndex];
-        let prevSentenceStart = this.currentWordIndex;
-        
-        // Find start of previous sentence
-        for (let i = this.currentWordIndex - 1; i >= 0; i--) {
-            if (this.wordSentenceMap[i] < currentSentence) {
-                prevSentenceStart = i;
-                break;
-            }
-        }
-        
-        if (prevSentenceStart !== this.currentWordIndex) {
-            this.currentWordIndex = prevSentenceStart;
-            this.highlightCurrentWord();
-            this.updateProgress();
         }
     }
 
