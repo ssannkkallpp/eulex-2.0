@@ -8,6 +8,7 @@ const translations = {
         "start-learning": "Start Learning",
         
         // Header
+        "reading-assistant": "Reading Assistant",
         "enhanced-learning": "Enhanced Learning Experience",
         
         // Story Selection
@@ -70,6 +71,7 @@ const translations = {
         "select-language": "Por favor selecciona tu idioma preferido",
         "native-language": "Idioma Nativo",
         "start-learning": "Comenzar a Aprender",
+        "reading-assistant": "Asistente de Lectura",
         "enhanced-learning": "Experiencia de Aprendizaje Mejorada",
         "choose-story": "Elige una Historia",
         "words": "palabras",
@@ -124,6 +126,7 @@ const translations = {
         "select-language": "Veuillez sélectionner votre langue préférée",
         "native-language": "Langue Maternelle",
         "start-learning": "Commencer à Apprendre",
+        "reading-assistant": "Assistant de Lecture",
         "enhanced-learning": "Expérience d'Apprentissage Améliorée",
         "choose-story": "Choisir une Histoire",
         "words": "mots",
@@ -178,6 +181,7 @@ const translations = {
         "select-language": "Bitte wählen Sie Ihre bevorzugte Sprache",
         "native-language": "Muttersprache",
         "start-learning": "Lernen Beginnen",
+        "reading-assistant": "Leseassistent",
         "enhanced-learning": "Verbesserte Lernerfahrung",
         "choose-story": "Geschichte Auswählen",
         "words": "Wörter",

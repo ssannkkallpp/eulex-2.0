@@ -67,31 +67,31 @@
     </div>
 
     <!-- Header -->
-    <header class="bg-white border-b-2 border-gray-300 shadow-sm">
-        <div class="container mx-auto px-4 py-4">
+    <header class="bg-white border-b-4 border-gray-200 shadow-lg mb-8">
+        <div class="container mx-auto px-6 py-6">
             <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-3">
-                    <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                        <i class="fas fa-book-open text-white text-xl"></i>
+                <div class="flex items-center space-x-4">
+                    <div class="w-14 h-14 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-md">
+                        <i class="fas fa-book-open text-white text-2xl"></i>
                     </div>
                     <div>
-                        <h1 class="text-2xl font-bold text-gray-900 font-['Lato']">EULEX</h1>
-                        <p class="text-sm text-gray-600" data-i18n="enhanced-learning">Enhanced Learning Experience</p>
+                        <h1 class="text-3xl font-bold text-gray-900 font-['Lato'] tracking-wide">EULEX</h1>
+                        <p class="text-sm text-gray-500 font-medium" data-i18n="reading-assistant">Reading Assistant</p>
                     </div>
                 </div>
                 
-                <nav class="hidden md:flex items-center space-x-6">
-                    <button id="languageBtn" class="text-gray-600 hover:text-blue-600 transition-colors" title="Change Language">
-                        <i class="fas fa-language text-lg"></i>
+                <nav class="hidden md:flex items-center space-x-8">
+                    <button id="languageBtn" class="text-gray-600 hover:text-blue-600 transition-colors p-2 rounded-lg hover:bg-gray-100" title="Change Language">
+                        <i class="fas fa-language text-xl"></i>
                     </button>
-                    <button id="settingsBtn" class="text-gray-600 hover:text-blue-600 transition-colors">
-                        <i class="fas fa-cog text-lg"></i>
+                    <button id="settingsBtn" class="text-gray-600 hover:text-blue-600 transition-colors p-2 rounded-lg hover:bg-gray-100">
+                        <i class="fas fa-cog text-xl"></i>
                     </button>
-                    <button id="helpBtn" class="text-gray-600 hover:text-blue-600 transition-colors">
-                        <i class="fas fa-question-circle text-lg"></i>
+                    <button id="helpBtn" class="text-gray-600 hover:text-blue-600 transition-colors p-2 rounded-lg hover:bg-gray-100">
+                        <i class="fas fa-question-circle text-xl"></i>
                     </button>
-                    <button id="fullscreenBtn" class="text-gray-600 hover:text-blue-600 transition-colors">
-                        <i class="fas fa-expand text-lg"></i>
+                    <button id="fullscreenBtn" class="text-gray-600 hover:text-blue-600 transition-colors p-2 rounded-lg hover:bg-gray-100">
+                        <i class="fas fa-expand text-xl"></i>
                     </button>
                 </nav>
             </div>
@@ -99,12 +99,12 @@
     </header>
 
     <!-- Main Content -->
-    <main class="container mx-auto px-4 py-8">
+    <main class="container mx-auto px-6 py-6">
         <!-- Story Selection Panel -->
-        <div id="storySelection" class="mb-8">
-            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-                <h2 class="text-xl font-semibold text-gray-900 mb-4 font-['Lato']" data-i18n="choose-story">Choose a Story</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="storyGrid">
+        <div id="storySelection" class="mb-10">
+            <div class="bg-white rounded-xl shadow-lg border border-gray-200 p-8">
+                <h2 class="text-2xl font-semibold text-gray-900 mb-6 font-['Lato']" data-i18n="choose-story">Choose a Story</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="storyGrid">
                     <!-- Stories will be populated by JavaScript -->
                 </div>
             </div>
@@ -113,11 +113,11 @@
         <!-- Reading Interface -->
         <div id="readingInterface" class="hidden">
             <!-- Story Header -->
-            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
+            <div class="bg-white rounded-xl shadow-lg border border-gray-200 p-8 mb-8">
                 <div class="flex items-center justify-between">
                     <div>
-                        <h2 id="storyTitle" class="text-2xl font-bold text-gray-900 mb-2 font-['Lato']"></h2>
-                        <div class="flex items-center space-x-4 text-sm text-gray-600">
+                        <h2 id="storyTitle" class="text-3xl font-bold text-gray-900 mb-3 font-['Lato']"></h2>
+                        <div class="flex items-center space-x-6 text-sm text-gray-600">
                             <span id="wordCount" data-i18n="words">0 words</span>
                             <span id="currentPosition">0 / 0</span>
                             <span id="readingTime" data-i18n="est-time">Est. 0 min</span>
@@ -131,10 +131,10 @@
             </div>
 
             <!-- Reading Area -->
-            <div class="grid grid-cols-1 xl:grid-cols-5 lg:grid-cols-4 gap-6 items-stretch">
+            <div class="grid grid-cols-1 xl:grid-cols-5 lg:grid-cols-4 gap-8 items-stretch">
                 <!-- Main Text Area -->
                 <div class="xl:col-span-3 lg:col-span-2 flex">
-                    <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 w-full flex flex-col">
+                    <div class="bg-white rounded-xl shadow-lg border border-gray-200 p-8 w-full flex flex-col">
                         <div id="storyText" class="text-xl leading-relaxed text-gray-800 h-full overflow-y-auto font-['Lato'] text-left">
                             <!-- Story text will be populated here -->
                         </div>
@@ -143,7 +143,7 @@
 
                 <!-- Control Panel -->
                 <div class="xl:col-span-2 lg:col-span-2 flex">
-                    <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 space-y-6 w-full flex flex-col">
+                    <div class="bg-white rounded-xl shadow-lg border border-gray-200 p-8 space-y-8 w-full flex flex-col">
                         <!-- Current Word Display -->
                         <div class="text-center">
                             <h3 class="text-sm font-medium text-gray-600 mb-2" data-i18n="current-word">Current Word</h3>
