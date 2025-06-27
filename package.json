@@ -47,7 +47,11 @@
     "last 2 versions",
     "not dead"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "openai": "^4.77.3",
+    "@openai/agents": "^0.0.5",
+    "@openai/agents-realtime": "^0.0.5"
+  },
   "volta": {
     "node": "18.0.0"
   }

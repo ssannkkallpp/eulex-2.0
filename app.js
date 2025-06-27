@@ -1,4 +1,5 @@
 // EULEX - Enhanced Learning Experience
+
 class EULEXApp {
     constructor() {
         this.settings = this.loadSettings();
