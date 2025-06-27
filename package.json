@@ -4,11 +4,13 @@
   "description": "Enhanced Learning Experience - A modern reading assistance tool for learning to read with syllable splitting and text-to-speech",
   "main": "index.html",
   "scripts": {
-    "start": "vite",
+    "dev": "vite --port 3000",
+    "dev:server": "node server.js",
+    "dev:full": "concurrently \"npm run dev:server\" \"npm run dev\"",
+    "start": "npx serve .",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "dev": "vite --port 3000",
-    "test": "echo 'No tests specified'",
+    "test": "jest",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "format": "prettier --write ."
   },
@@ -36,6 +38,11 @@
   },
   "homepage": "https://your-username.github.io/eulex-2.0/",
   "dependencies": {
+    "@openai/agents-realtime": "^0.0.10",
+    "axios": "^1.10.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^5.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -47,6 +54,7 @@
     "@typescript-eslint/parser": "^6.14.0",
     "@vitejs/plugin-react": "^4.2.1",
     "autoprefixer": "^10.4.16",
+    "concurrently": "^9.2.0",
     "eslint": "^8.55.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",

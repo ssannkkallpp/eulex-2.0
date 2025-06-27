@@ -12,6 +12,7 @@ import ReadingInterface from './components/ReadingInterface';
 import SettingsModal from './components/SettingsModal';
 import HelpModal from './components/HelpModal';
 import CompletionModal from './components/CompletionModal';
+import VoiceAgent from './components/VoiceAgent';
 
 function App() {
     const { getText, getTextWithParams, currentLanguage, changeLanguage } = useLanguage();
@@ -34,6 +35,8 @@ function App() {
         helpModal: false,
         completionModal: false
     });
+
+    const [isVoiceAgentActive, setIsVoiceAgentActive] = useState(false);
 
     // Show language modal on first visit
     useEffect(() => {
@@ -292,6 +295,14 @@ function App() {
                 onClose={handleCompletion}
                 getText={getText}
             />
+
+            {/* Voice Agent - only show when a story is selected */}
+            {readingState.currentStory && (
+                <VoiceAgent
+                    isActive={isVoiceAgentActive}
+                    onToggle={() => setIsVoiceAgentActive(!isVoiceAgentActive)}
+                />
+            )}
         </div>
     );
 }
