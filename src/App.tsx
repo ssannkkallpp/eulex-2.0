@@ -127,6 +127,11 @@ function App() {
         });
     };
 
+    // Handler for sentence reading speed
+    const handleSentenceRateChange = (rate: number) => {
+        updateSettings({ sentenceRate: rate });
+    };
+
     const playCurrentSentence = () => {
         const sentence = readingState.sentences[readingState.currentSentenceIndex];
         if (sentence) {
@@ -134,7 +139,7 @@ function App() {
             console.log('[EULEX] Playing sentence:', sentence, 'with voice:', selectedVoice?.name);
             speak(sentence, {
                 voice: selectedVoice,
-                rate: settings.speechRate
+                rate: settings.sentenceRate || settings.speechRate || 1.0
             });
         }
     };
@@ -259,6 +264,7 @@ function App() {
                         onSpeakSyllable={speakSyllable}
                         getText={getText}
                         getTextWithParams={getTextWithParams}
+                        onSentenceRateChange={handleSentenceRateChange}
                     />
                 )}
             </main>
