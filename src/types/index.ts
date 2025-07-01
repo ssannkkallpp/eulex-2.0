@@ -54,4 +54,4 @@ export interface ModalState {
   settingsModal: boolean;
   helpModal: boolean;
   completionModal: boolean;
-} 
+}
