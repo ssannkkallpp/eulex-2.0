@@ -15,6 +15,7 @@ export interface Settings {
   speechRate: number;
   autoPlay: boolean;
   language?: string;
+  sentenceRate?: number;
 }
 
 export interface Voice {

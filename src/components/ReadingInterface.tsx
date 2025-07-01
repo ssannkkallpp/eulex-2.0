@@ -20,6 +20,7 @@ interface ReadingInterfaceProps {
     onSpeakSyllable: (syllable: string) => void;
     getText: (key: string) => string;
     getTextWithParams: (key: string, params: Record<string, string>) => string;
+    onSentenceRateChange: (rate: number) => void;
 }
 
 const ReadingInterface: React.FC<ReadingInterfaceProps> = ({
@@ -39,7 +40,8 @@ const ReadingInterface: React.FC<ReadingInterfaceProps> = ({
     onPlaySentence,
     onSpeakSyllable,
     getText,
-    getTextWithParams
+    getTextWithParams,
+    onSentenceRateChange
 }) => {
     const renderSyllables = () => {
         if (syllables && syllables.includes('-')) {
@@ -169,11 +171,32 @@ const ReadingInterface: React.FC<ReadingInterfaceProps> = ({
 
                         {/* Progress Bar */}
                         <div>
-                            <div className="flex justify-between text-sm text-gray-600 mb-2">
+                            {/* Reading Speed Slider */}
+                            <div className="mb-4 w-full">
+                                <div className="flex justify-between text-sm text-gray-600 mb-1">
+                                    <label htmlFor="sentenceSpeedSlider" className="font-medium">
+                                        {getText('reading-speed') || 'Reading Speed'}
+                                    </label>
+                                    <span className="text-xs text-gray-500">{`${(settings.sentenceRate || 1.0).toFixed(2)}x`}</span>
+                                </div>
+                                <div className="w-full">
+                                    <input
+                                        id="sentenceSpeedSlider"
+                                        type="range"
+                                        min={0.7}
+                                        max={1.5}
+                                        step={0.05}
+                                        value={settings.sentenceRate || 1.0}
+                                        onChange={e => onSentenceRateChange(parseFloat(e.target.value))}
+                                        className="w-full"
+                                    />
+                                </div>
+                            </div>
+                            <div className="flex justify-between text-sm text-gray-600 mb-2 w-full">
                                 <span>{getText('progress')}</span>
                                 <span>{Math.round(progress)}%</span>
                             </div>
-                            <div className="w-full bg-gray-200 rounded-full h-2">
+                            <div className="w-full bg-gray-200 rounded-full h-2" style={{ marginLeft: '10px', width: 'calc(100% - 10px)' }}>
                                 <div 
                                     className="progress-bar" 
                                     style={{ width: `${progress}%` }}
