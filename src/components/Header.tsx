@@ -4,14 +4,15 @@ interface HeaderProps {
     onLanguageClick: () => void;
     onSettingsClick: () => void;
     onHelpClick: () => void;
+    onLogoClick: () => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ onLanguageClick, onSettingsClick, onHelpClick }) => {
+const Header: React.FC<HeaderProps> = ({ onLanguageClick, onSettingsClick, onHelpClick, onLogoClick }) => {
     return (
         <header className="bg-white border-b-4 border-gray-200 shadow-lg mb-8">
             <div className="container mx-auto px-6 py-6">
                 <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-4">
+                    <div className="flex items-center space-x-4 cursor-pointer" onClick={onLogoClick} title="Go to Home">
                         <div className="w-14 h-14 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-md">
                             <i className="fas fa-book-open text-white text-2xl"></i>
                         </div>

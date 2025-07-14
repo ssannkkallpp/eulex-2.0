@@ -235,6 +235,7 @@ function App() {
                 onLanguageClick={() => openModal('languageModal')}
                 onSettingsClick={() => openModal('settingsModal')}
                 onHelpClick={() => openModal('helpModal')}
+                onLogoClick={showStorySelection}
             />
 
             <main className="container mx-auto px-6 py-6">
