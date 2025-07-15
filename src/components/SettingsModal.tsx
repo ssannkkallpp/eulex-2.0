@@ -64,19 +64,18 @@ const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose, voices, 
                             {getText('language')}
                         </label>
                         <select
-                            className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white"
-                            value={availableLanguages.length > 0 && availableLanguages.some(l => l.code === selectedLanguage) ? selectedLanguage : (availableLanguages[0]?.code || '')}
+                            className="w-full border border-gray-300 rounded-lg px-3 py-2"
+                            value={selectedLanguage}
                             onChange={e => setSelectedLanguage(e.target.value)}
                         >
-                            {availableLanguages.length === 0 ? (
-                                <option value="">{getText('loading') || 'Loading...'}</option>
-                            ) : (
-                                availableLanguages.map(lang => (
-                                    <option key={lang.code} value={lang.code}>
-                                        {lang.name}
-                                    </option>
-                                ))
-                            )}
+                            <option value="" disabled>
+                                {getText('select-language') || 'Select language'}
+                            </option>
+                            {availableLanguages.map(lang => (
+                                <option key={lang.code} value={lang.code}>
+                                    {lang.name}
+                                </option>
+                            ))}
                         </select>
                     </div>
                     <div>
@@ -84,20 +83,17 @@ const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose, voices, 
                             {getText('voice')}
                         </label>
                         <select
-                            className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white"
-                            value={voices.length > 0 && voices.some(v => v.name === selectedVoice) ? selectedVoice : (voices[0]?.name || '')}
+                            className="w-full border border-gray-300 rounded-lg px-3 py-2"
+                            value={selectedVoice || ''}
                             onChange={e => setSelectedVoice(e.target.value)}
                             disabled={voices.length === 0}
                         >
-                            {voices.length === 0 ? (
-                                <option value="">{getText('loading') || 'Loading...'}</option>
-                            ) : (
-                                voices.map((voice, index) => (
-                                    <option key={index} value={voice.name}>
-                                        {voice.name} ({voice.lang})
-                                    </option>
-                                ))
-                            )}
+                            <option value="" disabled>{getText('select-voice') || 'Select voice'}</option>
+                            {voices.map((voice, index) => (
+                                <option key={index} value={voice.name}>
+                                    {voice.name} ({voice.lang})
+                                </option>
+                            ))}
                         </select>
                     </div>
                 </div>
